@@ -92,9 +92,11 @@ export default function TabOneScreen() {
         <View >
           <TouchableOpacity
             onPress={handleConnection}
-            style={{borderColor: "red"}}
+            style={{borderColor: readyState === ReadyState.OPEN ||
+              readyState === ReadyState.CONNECTING ? "red" : "#7d9f45", borderWidth: 1, height: 30, paddingHorizontal: 10, alignItems:"center", justifyContent:"center", borderRadius:5}}
           >
-            <Text>
+            <Text style={{color: readyState === ReadyState.OPEN ||
+            readyState === ReadyState.CONNECTING ? "red" : "#7d9f45", fontWeight:"bold"}}>
             {readyState === ReadyState.OPEN ||
             readyState === ReadyState.CONNECTING
               ? 'Disconnect'
